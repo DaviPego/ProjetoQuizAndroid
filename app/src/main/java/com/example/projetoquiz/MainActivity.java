@@ -1,4 +1,4 @@
-package com.example.java;
+package com.example.projetoquiz;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.projetoquiz.R;
-
 public class MainActivity extends AppCompatActivity {
-
     private TextView txvPergunta;
     private RadioGroup rbgPrincipal;
     private Button btnResponder;
@@ -37,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
     // IDs das respostas corretas
     private int[] respostasCorretas = {
-            R.id.rbA, // Pergunta 1 -> rb_a
-            R.id.rbA, // Pergunta 2 -> rb_a
-            R.id.rbB, // Pergunta 3 -> rb_b
-            R.id.rbD, // Pergunta 4 -> rb_d
-            R.id.rbC  // Pergunta 5 -> rb_c
+            R.id.rba, // Pergunta 1 -> rb_a
+            R.id.rba, // Pergunta 2 -> rb_a
+            R.id.rbb, // Pergunta 3 -> rb_b
+            R.id.rbd, // Pergunta 4 -> rb_d
+            R.id.rbc  // Pergunta 5 -> rb_c
     };
 
     @Override
@@ -51,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txvPergunta = findViewById(R.id.txvPerguntas);
-        rbgPrincipal = findViewById(R.id.rdgPrincipal);
+       rbgPrincipal = findViewById(R.id.rdgPrincipal);
         btnResponder = findViewById(R.id.btnResponder);
-        txvResultado = findViewById(R.id.txvResultado);
-        btnReiniciar = findViewById(R.id.btnReiniciar);
+        //txvResultado = findViewById(R.id.txvResultado);
+        //btnReiniciar = findViewById(R.id.btnReiniciar);
 
         carregarPergunta();
 
@@ -117,10 +114,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Errado!", Toast.LENGTH_SHORT).show();
         }
-            btnResponder.postDelayed(() ->{
-                indicePergunta++;
-                carregarPergunta();
-            }, 800);
+        btnResponder.postDelayed(() ->{
+            indicePergunta++;
+            carregarPergunta();
+        }, 800);
     }
     private void reiniciarQuiz(){
         pontuacao = 0;
